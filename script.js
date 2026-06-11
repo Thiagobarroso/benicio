@@ -71,8 +71,8 @@ async function iniciar() {
 
           ${
             confirmado
-              ? "🟢 Vou"
-              : "🔴 Não Vou"
+              ? "🟢 Presença confirmada"
+              : "🔴 Clique aqui para confirmar"
           }
 
         </button>
