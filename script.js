@@ -96,84 +96,70 @@ async function iniciar() {
 
 }
 
-async function trocarStatus(
-  nome,
-  botao
-) {
+async function trocarStatus(nome, botao) {
 
-  const confirmado =
-    botao.classList.contains("sim")
-      ? "NÃO"
-      : "SIM";
+  const estavaSim = botao.classList.contains("sim");
+  const novoStatus = estavaSim ? "NÃO" : "SIM";
+
+  // salva estado original
+  const textoOriginal = botao.innerHTML;
 
   try {
 
-    const resposta =
-      await fetch(
+    // 🔄 LOADING STATE
+    botao.disabled = true;
+    botao.innerHTML = `<span class="spinner"></span>`;
+    botao.style.cursor = "not-allowed";
 
-`${API_URL}?acao=atualizar&nome=${encodeURIComponent(nome)}&confirmado=${confirmado}`
+    const resposta = await fetch(
+      `${API_URL}?acao=atualizar&nome=${encodeURIComponent(nome)}&confirmado=${novoStatus}`
+    );
 
-      );
-
-    const resultado =
-      await resposta.json();
+    const resultado = await resposta.json();
 
     if (!resultado.sucesso) {
-
-      alert(
-        "Erro ao salvar."
-      );
-
-      return;
-
+      throw new Error("Erro ao salvar");
     }
 
-    if (confirmado === "SIM") {
-
+    // 🔁 ATUALIZA UI
+    if (novoStatus === "SIM") {
       botao.classList.remove("nao");
       botao.classList.add("sim");
-
-      botao.innerHTML =
-        "🟢 Vou";
-
+      botao.innerHTML = "🟢 Vou";
     } else {
-
       botao.classList.remove("sim");
       botao.classList.add("nao");
-
-      botao.innerHTML =
-        "🔴 Não Vou";
-
+      botao.innerHTML = "🔴 Não Vou";
     }
 
-    const msg =
-      document.getElementById(
-        "msg"
-      );
-
-    msg.innerHTML =
-      "✅ Presença atualizada";
-
-    msg.style.display =
-      "block";
+    // mensagem
+    const msg = document.getElementById("msg");
+    msg.innerHTML = "✅ Presença atualizada";
+    msg.style.display = "block";
 
     setTimeout(() => {
-
-      msg.style.display =
-        "none";
-
+      msg.style.display = "none";
     }, 2500);
 
   } catch (erro) {
 
     console.error(erro);
 
-    alert(
-      "Erro ao atualizar presença"
-    );
+    alert("Erro ao atualizar presença");
 
+    // 🔙 RESTAURA BOTÃO SE DER ERRO
+    botao.innerHTML = textoOriginal;
+
+  } finally {
+
+    // 🔓 libera botão sempre
+    botao.disabled = false;
+    botao.style.cursor = "pointer";
   }
-
 }
 
+
+
 iniciar();
+
+

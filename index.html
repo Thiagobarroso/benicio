@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>🚀 Benício 1 Ano</title>
+  <title>🚀 Benício faz 1 Ano</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -17,7 +17,7 @@
 
   <div class="container">
     <div class="card">
-      <h1>🚀 Benício 1 Ano</h1>
+      <h1>✨🚀 Benício faz 1 Ano ✨🚀</h1>
       <p class="hero">Prepare-se para uma missão muito especial!</p>
 
       <div class="countdown">
@@ -27,8 +27,10 @@
 
       <div class="evento">
         <p>📅 25 de Julho</p>
-        <p>🕒 19h</p>
+        <p>🕒 19:00h</p>
         <p>📍 Salão de Festas Bidas</p>
+        <p>R. Mary Elza, 126 - 22.749132, <br>
+          Areia Branca, Belford Roxo - RJ, 26112-310</p>
         <a class="mapa" target="_blank" href="https://www.google.com/maps?q=-22.749132,-43.408323">Como Chegar</a>
       </div>
 
@@ -38,5 +40,34 @@
 
   <script src="script.js"></script>
 </body>
+
+<script>
+  // 25 de julho às 19:00
+  const dataAlvo = new Date("July 25, 2026 19:00:00").getTime();
+
+  const contador = document.getElementById("contador");
+
+  const intervalo = setInterval(() => {
+    const agora = new Date().getTime();
+    const diferenca = dataAlvo - agora;
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+    contador.innerHTML = `
+      <div>${dias}d</div>
+      <div>${horas}h</div>
+      <div>${minutos}m</div>
+      <div>${segundos}s</div>
+    `;
+
+    if (diferenca < 0) {
+      clearInterval(intervalo);
+      contador.innerHTML = "🎉 A festa começou!";
+    }
+  }, 1000);
+</script>
 
 </html>

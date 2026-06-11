@@ -34,6 +34,9 @@ h1 {
   margin: 25px 0;
 }
 #contador {
+  display: flex;
+  justify-content: centers;
+  gap: 10px;
   font-size: 2rem;
   font-weight: bold;
 }
@@ -157,4 +160,81 @@ h1 {
   color: #bbf7d0;
   padding: 12px;
   border-radius: 12px;
+}
+
+.countdown {
+  text-align: center;
+  font-family: Arial;
+}
+
+#contador {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 24px;
+  margin-top: 10px;
+}
+
+#contador div {
+  background: #000;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  min-width: 60px;
+}
+.countdown {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  max-width: 320px; /* limita o tamanho */
+  margin: 20px auto; /* centraliza sem ocupar tela toda */
+}
+
+.countdown h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+#contador {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  flex-wrap: wrap; /* evita quebrar o layout em telas menores */
+}
+
+#contador div {
+  background: #000;
+  color: #fff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  min-width: 45px;
+  font-size: 14px;
+}
+
+/* 📱 Ajuste para celular */
+@media (max-width: 480px) {
+  .countdown {
+    max-width: 100%;
+  }
+
+  #contador div {
+    font-size: 12px;
+    padding: 5px 6px;
+    min-width: 40px;
+  }
+}
+
+.spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #000;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
