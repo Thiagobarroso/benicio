@@ -1,0 +1,160 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#020617, #0f172a);
+  color: #fff;
+  overflow-x: hidden;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  width: 100%;
+  max-width: 850px;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 30px;
+  border-radius: 24px;
+  border: 1px solid #334155;
+  backdrop-filter: blur(10px);
+}
+h1 {
+  text-align: center;
+}
+.hero {
+  text-align: center;
+  font-size: 1.1rem;
+}
+.countdown {
+  text-align: center;
+  margin: 25px 0;
+}
+#contador {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.evento {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.mapa {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 12px 18px;
+  background: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 12px;
+}
+.membro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111827;
+  padding: 14px;
+  border-radius: 12px;
+  margin: 10px 0;
+}
+.status {
+  border: none;
+  padding: 10px 15px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.sim {
+  background: #dcfce7;
+  color: #166534;
+}
+.nao {
+  background: #fee2e2;
+  color: #991b1b;
+}
+.msg {
+  display: none;
+  margin-top: 15px;
+  padding: 10px;
+  background: #052e16;
+  border-radius: 10px;
+  text-align: center;
+}
+.space {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+.planet {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float 10s infinite ease-in-out;
+}
+.p1 {
+  width: 120px;
+  height: 120px;
+  background: #60a5fa;
+  top: 10%;
+  left: 10%;
+}
+.p2 {
+  width: 180px;
+  height: 180px;
+  background: #f59e0b;
+  top: 60%;
+  right: 5%;
+}
+.p3 {
+  width: 80px;
+  height: 80px;
+  background: #a78bfa;
+  top: 20%;
+  right: 25%;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+.membro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #111827;
+  border-radius: 12px;
+}
+
+.status {
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 16px;
+  border-radius: 999px;
+}
+
+.sim {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.nao {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.msg {
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+  background: #052e16;
+  color: #bbf7d0;
+  padding: 12px;
+  border-radius: 12px;
+}
