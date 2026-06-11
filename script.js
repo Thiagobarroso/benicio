@@ -71,7 +71,7 @@ async function iniciar() {
 
           ${
             confirmado
-              ? "Presença confirmada"
+              ? "Confirmada🎉"
               : "Confirme aqui"
           }
 
@@ -125,11 +125,11 @@ async function trocarStatus(nome, botao) {
     if (novoStatus === "SIM") {
       botao.classList.remove("nao");
       botao.classList.add("sim");
-      botao.innerHTML = "🟢 Vou";
+      botao.innerHTML = "Confirmada🎉";
     } else {
       botao.classList.remove("sim");
       botao.classList.add("nao");
-      botao.innerHTML = "🔴 Não Vou";
+      botao.innerHTML = "Confirme aqui";
     }
 
     // mensagem
