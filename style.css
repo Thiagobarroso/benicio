@@ -238,3 +238,8 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
+footer {
+  display: flex;
+  justify-content: center;
+}
